@@ -15,21 +15,6 @@ function App() {
   // Apply scroll lock on PC view
   useScrollLock();
 
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCountdown((prev) => {
-        if (prev <= 1) {
-          clearInterval(timer);
-          handleRedirect();
-          return 0;
-        }
-        return prev - 1;
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
   const handleRedirect = () => {
     setIsRedirecting(true);
     toast({
@@ -73,11 +58,10 @@ function App() {
                 className="h-10 md:h-12 w-auto hover-scale transition-transform duration-300"
               />
             </div>
-            <div className="text-xs flex items-center space-x-1">
-              <Clock className="h-3 w-3 text-red-400" />
-              <span>Redirecting in:</span>
-              <span className="text-red-500 font-bold text-sm">{countdown}s</span>
-            </div>
+              <div className="text-xs flex items-center space-x-1">
+                <Clock className="h-3 w-3 text-red-400" />
+                <span>Ready to Explore!</span>
+              </div>
           </div>
         </motion.header>
 
